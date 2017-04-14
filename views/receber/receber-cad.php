@@ -1,10 +1,10 @@
 <?php if ( ! defined('ABSPATH')) exit; ?>
 
 <?php
-// Carrega todos os métodos do modelo
-$modelo->validate_register_form();
-$modelo->get_register_form( chk_array( $parametros, 2 ) );
-$modelo->del_receber( $parametros );
+    // Carrega todos os métodos do modelo
+    $modelo->validate_register_form();
+    $modelo->get_register_form( chk_array( $parametros, 1 ) );
+    $modelo->del_receber( $parametros );
 ?>
 
 <?php if( !empty( $modelo->form_msg_del ) ){ echo $modelo->form_msg_del; } ?>
@@ -12,7 +12,7 @@ $modelo->del_receber( $parametros );
 <!-- Page-Title -->
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-title">Cadastro de conta à receber <?php echo chk_array( $parametros, 2 ) ?></h4>
+        <h4 class="page-title">Cadastro de conta à receber</h4>
         <ol class="breadcrumb">
             <li>
                 <a href="<?php echo HOME_URI; ?>">Início</a>

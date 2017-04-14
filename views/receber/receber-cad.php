@@ -1,10 +1,10 @@
 <?php if ( ! defined('ABSPATH')) exit; ?>
 
 <?php
-    // Carrega todos os métodos do modelo
-    $modelo->validate_register_form();
-    $modelo->get_register_form( chk_array( $parametros, 1 ) );
-    $modelo->del_receber( $parametros );
+// Carrega todos os métodos do modelo
+$modelo->validate_register_form();
+$modelo->get_register_form( chk_array( $parametros, 2 ) );
+$modelo->del_receber( $parametros );
 ?>
 
 <?php if( !empty( $modelo->form_msg_del ) ){ echo $modelo->form_msg_del; } ?>
@@ -12,7 +12,7 @@
 <!-- Page-Title -->
 <div class="row">
     <div class="col-sm-12">
-        <h4 class="page-title">Cadastro de conta à receber</h4>
+        <h4 class="page-title">Cadastro de conta à receber <?php echo chk_array( $parametros, 2 ) ?></h4>
         <ol class="breadcrumb">
             <li>
                 <a href="<?php echo HOME_URI; ?>">Início</a>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <?php if( empty(chk_array( $modelo->form_data, 'idConta')) )
-                { 
+                {
                     ?>
                     <div class="row">
                         <div class="col-md-12">
@@ -116,8 +116,8 @@
                             </div>
                         </div>
                     </div>
-                    <?php 
-                } 
+                    <?php
+                }
                 ?>
 
                 <div class="row">
@@ -140,6 +140,21 @@
         ?>
         <div class="col-sm-3">
             <div class="card-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Status</label>
+                            <input type="text" class="form-control border-input datepicker" placeholder="" value="<?php
+                            if( chk_array($modelo->form_data, 'valorPago') < chk_array($modelo->form_data, 'valor'))
+                            {
+                                echo 'Pendente';
+                            }else{
+                                echo 'Baixado';
+                            }
+                            ?>" readonly>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">

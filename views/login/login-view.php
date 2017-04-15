@@ -42,39 +42,54 @@
                 <h2 class="text-center text-white"> i<strong class="text-success">Grana</strong> </h2>
             </div>
             <div class="panel-body">
-	            <form class="form-horizontal m-t-20" method="POST">
+	            <form class="form-horizontal m-t-5" method="POST">
 	                <div class="form-group ">
-	                    <div class="col-xs-12">
-	                        <input class="form-control input-lg" type="text" placeholder="Usuário" name="userdata[user]" required="required">
+	                    <div class="">
+	                        <input class="form-control" type="text" placeholder="Usuário" name="userdata[user]" required="required">
 	                    </div>
 	                </div>
 	                <div class="form-group">
-	                    <div class="col-xs-12">
-	                        <input class="form-control input-lg" type="password" placeholder="Senha" name="userdata[user_password]" required="required">
+	                    <div class="">
+	                        <input class="form-control" type="password" placeholder="Senha" name="userdata[user_password]" required="required">
 	                    </div>
 	                </div>
-	                <div class="form-group text-center m-t-40">
-	                    <div class="col-xs-12">
-	                        <button class="btn btn-success btn-block text-uppercase waves-effect waves-light" type="submit">Entrar</button>
+	                <div class="form-group text-center m-t-20">
+	                    <div class="">
+	                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Entrar</button>
 	                    </div>
 	                </div>
-	                <div class="form-group">
-	                    <div class="col-xs-12 text-center">
-	                        <label>
-	                            <?php
-								  	if ( $this->login_error ) {
-										echo $this->login_error;
-								  	}
-								?>
-	                        </label>                        
-	                    </div>
-	                </div>
+                    <?php
+                    if ( $this->login_error ) {
+                        ?>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <label> <?php echo $this->login_error; ?> </label>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <div class="form-group m-t-30 m-b-0">
+                        <div class="">
+                            <a href="<?php echo HOME_URI; ?>/recover" class="text-primary m-l-5"><i class="fa fa-lock m-r-5"></i> Esqueceu sua senha?</a>
+                        </div>
+                    </div>
 	            </form> 
             </div>
         </div>
+            <div class="row">
+                <div class=" text-center">
+                    <p>Ainda não é usuário iGrana? <a href="<?php echo HOME_URI; ?>/user/cad" class="text-primary m-l-5"><b>Clique aqui</b></a></p>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
     	<script>
             var resizefunc = [];
         </script>
+
         <!-- jQuery  -->
         <script src="<?php echo HOME_URI;?>/views/assets/js/jquery.min.js"></script>
         <script src="<?php echo HOME_URI;?>/views/assets/js/bootstrap.min.js"></script>

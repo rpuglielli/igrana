@@ -76,10 +76,11 @@
                             ?>
                         </td>
                         <td align="right">
-                            <a href="<?php echo HOME_URI ?>/receber/baixa/<?php echo $fetch_data['idConta'] ?>" class="btn btn-link waves-effect btn-xs text-success">Baixar</a>
-                            &nbsp;&nbsp;
-                            <a href="<?php echo HOME_URI ?>/receber/cad/edit/<?php echo $fetch_data['idConta'] ?>" class="on-default edit-row"><i class="fa fa-pencil text-primary"></i></a>
-                            &nbsp;&nbsp;
+                            <?php if( $fetch_data['valorPago'] < $fetch_data['valor'] ){ ?>
+                                <a href="<?php echo HOME_URI ?>/receber/baixa/<?php echo $fetch_data['idConta'] ?>" class="btn btn-link waves-effect btn-xs text-success">Baixar</a>
+                                &nbsp;&nbsp;
+                                <a href="<?php echo HOME_URI ?>/receber/cad/edit/<?php echo $fetch_data['idConta'] ?>" class="on-default edit-row"><i class="fa fa-pencil text-primary"></i></a>
+                            <?php } ?>&nbsp;&nbsp;
                             <a href="<?php echo HOME_URI ?>/receber/cad/del/<?php echo $fetch_data['idConta'] ?>" class="on-default remove-row"><i class="fa fa-trash-o text-danger"></i></a>
                         </td>
                     </tr>

@@ -45,24 +45,28 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Data de lançamento *</label>
+                        <label>Data de lançamento *</label>
+                        <div class="input-group">
+
                             <input type="text" class="form-control border-input datepicker" placeholder="99/99/9999" id="dataLancamento" name="dataLancamento" value="<?php
                             if(empty(chk_array( $modelo->form_data, 'dataCriacao'))){ echo converteData(date("Y-m-d")); } else { echo htmlentities( converteData(chk_array( $modelo->form_data, 'dataLancamento')) ); } ?>" required="required">
+                            <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Data de vencimento *</label>
+                        <label>Data de vencimento *</label>
+                        <div class="input-group">
                             <input type="text" class="form-control border-input datepicker" placeholder="99/99/9999" id="dataVencimento" name="dataVencimento" value="<?php
                             echo htmlentities( converteData( chk_array( $modelo->form_data, 'dataVencimento') ) ); ?>" required="required">
+                            <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i>
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Valor total *</label>
+                        <label>Valor total *</label>
+                        <div class="input-group">
                             <input type="text" class="form-control border-input" placeholder="0,00" id="valor" name="valor" value="<?php
                             echo htmlentities(  imprimeValorFormatado(chk_array( $modelo->form_data, 'valor'),1) ); ?>" required align="right">
+                            <span class="input-group-addon bg-custom b-0 text-white"><i class="ti-money"></i>
                         </div>
                     </div>
                 </div>
@@ -144,7 +148,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Status</label>
-                            <input type="text" class="form-control border-input datepicker" placeholder="" value="<?php
+                            <input type="text" class="form-control border-input" placeholder="" value="<?php
                             if( chk_array($modelo->form_data, 'valorPago') < chk_array($modelo->form_data, 'valor'))
                             {
                                 echo 'Pendente';
@@ -228,5 +232,5 @@
 
 <script type="text/javascript" src="<?php echo HOME_URI; ?>/views/assets/plugins/multiselect/js/jquery.multi-select.js"></script>
 <script src="<?php echo HOME_URI; ?>/views/assets/plugins/select2/js/select2.min.js" type="text/javascript"></script>
-
+<link href="<?php echo HOME_URI; ?>/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo HOME_URI; ?>/views/assets/pages/jquery.form-advanced.init.js"></script>

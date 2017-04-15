@@ -110,10 +110,10 @@ class ReceberModel
         );
 
         if( isset($this->form_data['valor']) )
-        	$arrayData['valor'] = str_replace( ' ','',str_replace( 'R$','',str_replace( ',','.',$this->form_data['valor'] ) ) );
+        	$arrayData['valor'] = str_replace( ',','.',str_replace( 'R$','',str_replace( '.','',$this->form_data['valor'] ) ) );
 
         if( isset($this->form_data['valorPago']) )
-        	$arrayData['valorPago'] = str_replace( ' ','',str_replace( 'R$','',str_replace( ',','.',$this->form_data['valorPago'] ) ) );
+        	$arrayData['valorPago'] = str_replace( ',','.',str_replace( 'R$','',str_replace( '.','',$this->form_data['valorPago'] ) ) );
 		
 		// Se o ID não estiver vazio, atualiza os dados
 		if ( ! empty($data_id) ) {
